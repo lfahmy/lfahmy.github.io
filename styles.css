@@ -1,0 +1,21 @@
+* {
+	font-family: Helvetica, Sans-Serif;
+	-webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+#home {
+	background-image: linear-gradient(rgba(255,0,0,0), #99d6ff, #006bb3);
+}
+
+#paper {
+	background-image: linear-gradient(#006bb3, #99d6ff);
+}
+
+#ball {
+	background-image: linear-gradient(#99d6ff, #006bb3);
+}
+
+#resume {
+	background-image: linear-gradient(#006bb3, #99d6ff, rgba(255,0,0,0));
+}

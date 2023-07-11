@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Luke Fahmy's Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  
+<!-- <div class="container">
+  <h1>My First Bootstrap Page</h1>
+  <p>This part is inside a .container class.</p> 
+  <p>The .container class provides a responsive fixed width container.</p>           
+</div> -->
+
+<div class="container-fluid px-0">
+   <nav class="navbar sticky-top navbar-expand-sm navbar-light mx-0 container-fluid">
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link btn" href="#home">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link btn" href="#paper">Papers/Lectures</a>
+      <a class="nav-item nav-link btn" href="#ball">Basketball</a>
+      <a class="nav-item nav-link btn" href="#resume">Resume</a>
+    </div>
+   </div>
+   </nav>
+
+
+   <div class="py-2 container-fluid" id="home">
+   <div class="row">
+   	  <div class="col-sm-12 text-center">
+   	  	<img src="head.jpg" alt="Photo of Me" height="250" width="250" class="rounded-circle img-fluid">
+   	  </div>
+   </div>
+   <h1 class="container-fluid text-center">Luke Fahmy</h1>
+</div>
+
+   <div class="row px-lg-5 px-sm-1 py-5" id="paper">
+      <div class="col-md-6 embed-responsive embed-responsive-16by9">
+    	<!-- <object class="embed-responsive-item" data="paper.pdf#view=FitH" type="application/pdf" title="Naive Bayes, KNN, and Random Forest Comparison">
+        </object> -->
+        <object class="embed-responsive-item" data="Pixel_Art.pdf#view=FitH" type="application/pdf" title="Two Methods For Style Transfer Using Pixel Art">
+        </object>
+      </div>
+      <div class="col-md-6 embed-responsive embed-responsive-16by9">
+    	<object class="embed-responsive-item" data="presentation-lfahmy.pdf#view=FitH" type="application/pdf" title="Applications of Singular Value Decomposition">
+        </object>
+      </div>
+   </div>
+
+  <div class="py-2 container-fluid" id="ball">
+  <h2 class="text-center">Predicting the Trajectory of a Basketball Shot</h2>
+  <div class="row px-3">
+  	<div class="col-sm-12 text-center">
+  		<p> I set out to predict the trajectory of a basketball shot using OpenCV in
+Python. The goal was to have a short video of the first portion of a shot (before the
+ball reaches its peak), and predict if the ball will go in or not. I used background and
+foreground segmentation, blob detection, and least-squares estimation to achieve
+this result in 2D. I found that the environment of the shooter has an enormous effect
+on the results, and the ability to detect the ball. All in all, this project requires much
+more work to be practically useful and not just interesting.</p>
+	</div>
+  </div>
+  <div class="row pb-2">
+  	<div class="col-sm-12 text-center">
+		<button class="btn btn-outline-primary" type="button" onclick="playPause()"> Play/Pause All </button>
+	</div>
+  </div>
+  <div class="row">
+  	<div class="col-md-6 embed-responsive embed-responsive-16by9">
+  		<video class="embed-responsive-item" id="vid1" loop autoplay muted playsinline>
+			<source src="back_inv.mp4" type="video/mp4">
+		</video>
+  	</div>
+  	<div class="col-md-6 embed-responsive embed-responsive-16by9">
+  		<video class="embed-responsive-item" id="vid2" loop autoplay muted playsinline>
+			<source src="circles.mp4" type="video/mp4">
+		</video>
+  	</div>
+  	<div class="col-md-12 embed-responsive embed-responsive-16by9">
+  		<video class="embed-responsive-item" id="vid3" loop autoplay muted playsinline>
+			<source src="predicted.mp4" type="video/mp4">
+		</video>
+  	</div>
+  </div>
+</div>
+
+<div class="row px-lg-5 px-sm-1 py-5" id="resume">
+      <div class="col-md-12 embed-responsive embed-responsive-16by9">
+    	<object class="embed-responsive-item" data="resume.pdf#view=FitH" type="application/pdf" title="Resume">
+        </object>
+      </div>
+ </div>
+
+</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script>
+		var vid = document.getElementsByTagName("video");
+		var i;
+		function playPause() {
+			//Alternate the order we start and stop so that our videos stay more in sync
+			if(vid[0].paused) {
+				for(i = 0; i < vid.length; i++) vid[i].play();
+			}
+			else {
+				for(i = vid.length-1; i >= 0; i--) vid[i].pause();
+			}
+		}
+	</script>
+</body>
+</html>
